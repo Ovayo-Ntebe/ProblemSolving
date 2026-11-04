@@ -29,8 +29,31 @@ Space : O(1)
 Your ans list contains exactly two indices because the problem guarantees one answer. Therefore, it doesn't grow with the input size.
 """
 
+#--------------------Improved version ------------------------
+
+"""
+Requirements:
+- Use a dictionary.
+- Use only one loop.
+- Return the two indices.
+- Aim for O(n) time complexity.
+"""
+
+def two_sum_improved(nums, target):
+    tracking_map = {}
+    
+    for i in range (len(nums)):
+        #calculate the differnce im looking for in map
+        dif = target - nums[i] 
+        if dif not in tracking_map:
+            #if not there add the current number
+            tracking_map[nums[i]] = i
+        else:
+            #if found return the indexes
+            return[ tracking_map[dif], i]
+
 
 nums = [2, 7, 11, 15]
-print(two_sum(nums, 9))
+#print(two_sum(nums, 9))
+print(two_sum_improved(nums, 9))
                 
-        
