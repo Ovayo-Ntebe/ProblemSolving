@@ -14,23 +14,40 @@ Think about:
 3. What happens when you encounter a duplicate?
 """
 
+"""
+NEW CHECKS
+Your requirements:
+1. Handle negative numbers of any magnitude.
+2. Handle empty lists.
+3. Handle lists containing only one distinct number.
+4. Handle duplicates correctly.
+5. Maintain O(n) time complexity and O(1) auxiliary space.
+"""
+
+
+# Time complexity = O(n)
 def second_largest(numbers):
-    max = numbers[0]
-    max2 = -1000
+    result = None
+    max = float("-inf")
+    max2 = float("-inf") + 1
     size = len(numbers)
-    for i in range(1, size):
-        if numbers[i] > max:
-            #update the 2nd max to current max
-            max2= max
-            #update the max to the i
-            max = numbers[i]
-        elif numbers[i] < max and numbers[i] > max2:
-            max2 = numbers[i]  #check i is less than max but bigger than current max  
-                         
-    #return max2
-    return max2
-        
-        
-#Test it i guess
-numbers = [10, 5, 20, 8, 20, 15]
+    if (size != 0) and  (size != 1):
+        for i in range(0, size):
+            if numbers[i] > max:
+                # update the 2nd max to current max
+                max2 = max
+                # update the max to the i
+                max = numbers[i]
+            elif numbers[i] < max and numbers[i] > max2:
+                max2 = numbers[i]  # check i is less than max but bigger than current max
+        result = max2
+
+    # return max2
+    return result
+# Test it i guess
+#numbers = [10, 5, 20, 8, 20, 15]
+#numbers = [10, 10, 10]
+#numbers = [-5, -2, -8]
+numbers = [7]
+#numbers = []
 print(second_largest(numbers))
