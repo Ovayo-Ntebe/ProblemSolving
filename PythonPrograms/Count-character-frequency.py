@@ -37,5 +37,29 @@ def character_frequency(text):
     #return the dict
     return char_dict
 
-print(character_frequency("programming"))
+#get does this
+#If the key exists, it returns its current value.
+#If the key doesn't exist, it returns the default value.
+def character_frequency_shorter(text):
+    char_dict = {}
+    for c in text:
+        char_dict[c] = char_dict.get(c, 0) + 1 
+        
+    return char_dict
+        
+
+#print(character_frequency("programming"))
+print(character_frequency_shorter("programming"))
     
+"""
+3. Complexity analysis
+
+Time complexity: O(n)
+You visit each character once.
+Dictionary lookup and insertion are O(1) on average.
+
+Space complexity: O(k)
+Where k is the number of distinct characters in the string.
+For example, "banana" has six characters but only three distinct characters (b, a, n).
+This is an important distinction: space complexity doesn't necessarily depend on the total input length. It can depend on the number of unique elements.
+"""
